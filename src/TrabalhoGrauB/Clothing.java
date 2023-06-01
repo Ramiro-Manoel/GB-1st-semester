@@ -1,6 +1,6 @@
 package TrabalhoGrauB;
 
-public class Roupa {
+public class Clothing {
 	
 	private String tecido;
 
