@@ -1,6 +1,6 @@
 package TrabalhoGrauB;
 
-public class Electronics {
+public class Electronics extends Product {
 
 //Attribute Declaration
 	
