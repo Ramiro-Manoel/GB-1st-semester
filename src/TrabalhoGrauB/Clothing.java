@@ -15,8 +15,8 @@ public class Clothing extends Product {
 
 //Constructor
 
-	public Clothing(String nome, double price, String description, int quantity, String brand, int identifier) {
-		super(nome, price, description, quantity, brand, identifier);
+	public Clothing(String name, double price, String description, int quantity, String brand, int identifier) {
+		super(name, price, description, quantity, brand, identifier);
 		
 	}
 	

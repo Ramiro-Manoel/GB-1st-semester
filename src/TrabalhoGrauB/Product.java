@@ -4,7 +4,7 @@ public abstract class Product {
 
 //Attribute declaration
 	
-private String nome;
+private String name;
 private double price;
 private String description;
 private int quantity;
@@ -22,7 +22,7 @@ public Product() {
 
 public Product(String nome, double price, String description, int quantity, String brand, int identifier) {
 	super();
-	this.nome = nome;
+	this.name = nome;
 	this.price = price;
 	this.description = description;
 	this.quantity = quantity;
@@ -33,11 +33,11 @@ public Product(String nome, double price, String description, int quantity, Stri
 //Getters&Setters
 
 public String getNome() {
-	return nome;
+	return name;
 }
 
 public void setNome(String nome) {
-	this.nome = nome;
+	this.name = nome;
 }
 
 public double getPrice() {
@@ -84,7 +84,7 @@ public void setIdentifier(int identifier) {
 
 @Override
 public String toString() {
-	return "Product [nome=" + nome + ", price=" + price + ", description=" + description + ", quantity=" + quantity
+	return "Product [nome=" + name + ", price=" + price + ", description=" + description + ", quantity=" + quantity
 			+ ", brand=" + brand + ", identifier=" + identifier + "]";
 }
 
