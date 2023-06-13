@@ -71,15 +71,10 @@ public class Stock {
 		
 	}
 	
-	public boolean filter(int filter) {
-		for(Product e: stockList) {
-			if (e == HomeAppliances) {
-				
-			}
-		}
+	
 
 		
-		return true;
+	
 	}
 	
-}
+
