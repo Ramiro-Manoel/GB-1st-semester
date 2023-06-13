@@ -35,7 +35,15 @@ public class HomeAppliances extends Product {
 	
 	@Override
 	public String toString() {
-		return "HomeAppliances [power=" + power + "]";
+		return super.toString() + "HomeAppliances [power=" + power + "]";
+	}
+	
+//Methods
+	
+	public String Details() {
+		return "Name: " + this.getName() + "\nPrice: " + this.getPrice() + "\nDescription: " + this.getDescription() + "\nQuantity: " + this.getQuantity() + 
+				"\nBrand: " + this.getBrand() + "\nIdentifier: " + this.getIdentifier() + 
+				"\nPower: " + this.getPower();
 	}
 	
 

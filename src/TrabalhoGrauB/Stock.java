@@ -52,7 +52,8 @@ public class Stock {
 	public boolean seeStock() {
 		for(Product e: stockList) {
 			for(int i = 0; i < stockList.size(); i++)
-				System.out.println(i + " - " + e.showProduct);
+				System.out.println(i + " - " + e.showProduct());
+			break;
 		}
 		return true;
 	}

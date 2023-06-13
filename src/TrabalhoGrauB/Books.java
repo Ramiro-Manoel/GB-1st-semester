@@ -56,6 +56,14 @@ public void setPages(int pages) {
 public String toString() {
 	return "Books [Author=" + Author + ", physical=" + physical + ", pages=" + pages + "]";
 }
+
+//Methods
+
+public String Details() {
+	return "Name: " + this.getName() + "\nPrice: " + this.getPrice() + "\nDescription: " + this.getDescription() + "\nQuantity: " + this.getQuantity() + 
+			"\nBrand: " + this.getBrand() + "\nIdentifier: " + this.getIdentifier() + 
+			"\nAuthor: " + this.getAuthor() + "\nPhysical: " + this.isPhysical() + "\nPages: " + this.getPages();
+}
 	
 
 
