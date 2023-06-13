@@ -54,6 +54,14 @@ public class Electronics extends Product {
 		return "Electronics [type=" + type + ", color=" + color + "]";
 	}
 	
+//Methods
+	
+	public String Details() {
+		return "Name: " + this.getName() + "\nPrice: " + this.getPrice() + "\nDescription: " + this.getDescription() + "\nQuantity: " + this.getQuantity() + 
+				"\nBrand: " + this.getBrand() + "\nIdentifier: " + this.getIdentifier() + 
+				"\nType: " + this.getType() + "\nColor: " + this.getColor();
+	}
+	
 	
 	
 	

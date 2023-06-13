@@ -20,9 +20,9 @@ public Product() {
 
 //Constructor
 
-public Product(String nome, double price, String description, int quantity, String brand, int identifier) {
+public Product(String name, double price, String description, int quantity, String brand, int identifier) {
 	super();
-	this.name = nome;
+	this.name = name;
 	this.price = price;
 	this.description = description;
 	this.quantity = quantity;
@@ -32,12 +32,12 @@ public Product(String nome, double price, String description, int quantity, Stri
 
 //Getters&Setters
 
-public String getNome() {
+public String getName() {
 	return name;
 }
 
-public void setNome(String nome) {
-	this.name = nome;
+public void setName(String name) {
+	this.name = name;
 }
 
 public double getPrice() {
@@ -84,11 +84,17 @@ public void setIdentifier(int identifier) {
 
 @Override
 public String toString() {
-	return "Product [nome=" + name + ", price=" + price + ", description=" + description + ", quantity=" + quantity
+	return "Product [name=" + name + ", price=" + price + ", description=" + description + ", quantity=" + quantity
 			+ ", brand=" + brand + ", identifier=" + identifier + "]";
 }
 
+//Methods
 
+public String showProduct () {
+	return "Name: " + this.getName() + " Price: R$" + this.getPrice();
+};
+
+public abstract String Details();
 
 
 }
