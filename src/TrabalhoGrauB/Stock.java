@@ -50,12 +50,19 @@ public class Stock {
 
 	// metodo exibe todos os itens do estoque
 	public boolean seeStock() {
+		if(stockList.isEmpty()) {
+			System.out.println("The stock is still empty");
+			return false;
+		} else {
 		for (Product e : stockList) {
+			System.out.println("Stock:");
 			if (e.getQuantity() > 0) {
 				System.out.println(stockList.indexOf(e) + " - " + e.showProduct());
 			}
-		}
+			}
 		return true;
+		}
+		
 	}
 
 	// metodo procura produto pelo codigo
@@ -72,9 +79,11 @@ public class Stock {
 	}
 
 	// metodo exibe apenas os itens de uma determinada categoria
+
 	public boolean filter(int filter) {
 
 		switch (filter) {
+		// products with the identifier between 1000 and 1999 are books
 		case 1:
 			for (Product e : stockList) {
 
@@ -84,6 +93,7 @@ public class Stock {
 			}
 			break;
 
+		// products with the identifier between 2000 and 2999 are home appliances
 		case 2:
 			for (Product e : stockList) {
 
@@ -92,6 +102,8 @@ public class Stock {
 				}
 			}
 			break;
+
+		// products with the identifier between 3000 and 3999 are clothing
 		case 3:
 			for (Product e : stockList) {
 
@@ -100,6 +112,8 @@ public class Stock {
 				}
 			}
 			break;
+
+		// products with the identifier between 4000 and 4999 are electronics
 		case 4:
 			for (Product e : stockList) {
 
@@ -108,10 +122,10 @@ public class Stock {
 				}
 			}
 			break;
-			
-			default: 
-				System.out.println("invalid option");
-				break;
+
+		default:
+			System.out.println("invalid option");
+			break;
 		}
 
 		return true;

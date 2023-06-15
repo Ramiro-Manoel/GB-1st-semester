@@ -7,7 +7,7 @@ public class Order {
 //Attribute Declaration
 	
 	private int indentifier;
-	private ArrayList products;
+	private ArrayList<Product> products = new ArrayList<>();
 	private Client client;
 	private Payment payment;
 	
@@ -20,10 +20,9 @@ public class Order {
 	
 //Constructor
 
-	public Order(int indentifier, ArrayList products, Client client, Payment payment) {
+	public Order(int indentifier, Client client, Payment payment) {
 		super();
 		this.indentifier = indentifier;
-		this.products = products;
 		this.client = client;
 		this.payment = payment;
 	}
@@ -64,9 +63,9 @@ public class Order {
 	
 //Methods
 	
-	public boolean data () {
-		return true;
-		
+	//Returns the information of the order
+	public String orderInfo () {
+		return "Order indentifier: " + indentifier + "\nclient: " + client.ClientInfo();
 	}
 	
 	

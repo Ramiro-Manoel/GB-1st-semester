@@ -63,6 +63,9 @@ public class Client {
 	public String toString() {
 		return "Client [name=" + name + ", address=" + address + "]";
 	}
-		
+	//Returns the information of the client
+	public String ClientInfo() {
+		return "name: " + name + "\naddress: " + address.seeAddress();
+	}
 
 }

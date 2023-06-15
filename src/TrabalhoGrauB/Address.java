@@ -67,6 +67,8 @@ public class Address {
 		return "Address [state=" + state + ", city=" + city + ", street=" + street + ", number=" + number + "]";
 	}
 	
-	
+	public String seeAddress() {
+		return street + ", " + number + " - " + city + " - " + state;
+	}
 
 }

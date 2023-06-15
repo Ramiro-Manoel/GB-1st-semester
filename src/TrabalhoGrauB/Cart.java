@@ -48,13 +48,17 @@ public class Cart {
 
 		if (shoppingList.isEmpty()) {
 			System.out.println("Your cart is empty");
+			return false;
 		} else {
+			double finalValue = 0;
+			System.out.println("Your cart:");
 			for (Product e : shoppingList) {
 				System.out.println(shoppingList.indexOf(e) + " - " + e.showProduct());
+				finalValue += e.getPrice();
 			}
+			System.out.println("    Final price: R$" + finalValue);
+			return true;
 		}
-
-		return true;
 	}
 
 	public double conclude() {

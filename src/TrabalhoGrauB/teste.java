@@ -26,11 +26,11 @@ public class teste {
 
 		Cart c = new Cart();
 
-		s1.seeStock();
+		
 		c.addProduct(0, s1);
 		c.addProduct(0, s1);
 		
-		System.out.println(c.conclude());
+		
 		c.SeeCart();
 	}
 }
