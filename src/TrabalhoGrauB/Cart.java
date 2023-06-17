@@ -61,6 +61,16 @@ public class Cart {
 		}
 	}
 
+	public double finalValue() {
+		double finalValue = 0;
+		
+		for(Product e: shoppingList) {
+			finalValue += e.getPrice();
+		}
+		return finalValue;
+	}
+	
+	
 	public double conclude() {
 		double finalValue = 0;
 		

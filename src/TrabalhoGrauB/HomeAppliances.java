@@ -5,7 +5,7 @@ public class HomeAppliances extends Product {
 //Attributes Declaration
 	
 	private int power;
-
+	
 //Empty Constructor
 	
 	public HomeAppliances() {
@@ -20,9 +20,13 @@ public class HomeAppliances extends Product {
 		this.power = power;
 	}
 
+	public HomeAppliances(String name, double price, String description, int quantity, String brand, int identifier, int power) {
+		super(name, price, description, quantity, brand, identifier);
+		this.power = power;
+	}
+	
 //Getters&Setters
 	
-
 	public int getPower() {
 		return power;
 	}

@@ -54,8 +54,8 @@ public class Stock {
 			System.out.println("The stock is still empty");
 			return false;
 		} else {
-		for (Product e : stockList) {
 			System.out.println("Stock:");
+		for (Product e : stockList) {
 			if (e.getQuantity() > 0) {
 				System.out.println(stockList.indexOf(e) + " - " + e.showProduct());
 			}

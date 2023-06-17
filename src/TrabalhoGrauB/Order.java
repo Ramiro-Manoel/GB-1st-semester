@@ -6,7 +6,6 @@ public class Order {
 	
 //Attribute Declaration
 	
-	private int indentifier;
 	private ArrayList<Product> products = new ArrayList<>();
 	private Client client;
 	private Payment payment;
@@ -20,22 +19,13 @@ public class Order {
 	
 //Constructor
 
-	public Order(int indentifier, Client client, Payment payment) {
+	public Order(Client client, Payment payment) {
 		super();
-		this.indentifier = indentifier;
 		this.client = client;
 		this.payment = payment;
 	}
 	
 //Getters&Setters
-
-	public int getIndentifier() {
-		return indentifier;
-	}
-
-	public void setIndentifier(int indentifier) {
-		this.indentifier = indentifier;
-	}
 
 	public ArrayList getProducts() {
 		return products;
@@ -64,8 +54,19 @@ public class Order {
 //Methods
 	
 	//Returns the information of the order
-	public String orderInfo () {
-		return "Order indentifier: " + indentifier + "\nclient: " + client.ClientInfo();
+	public boolean orderInfo () {
+		System.out.println("Order " + "\nClient: " + client.ClientInfo() + "\nProducts: ");
+			for (Product e: products) {
+				System.out.println(e.showProduct());
+			}
+		return true;
+	}
+	
+	public boolean passProducts(Cart cart) {
+		for(Product e: cart.getShoppingList()) {
+			products.add(e);
+		}
+		return true;
 	}
 	
 	

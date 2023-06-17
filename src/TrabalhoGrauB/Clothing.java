@@ -5,7 +5,7 @@ public class Clothing extends Product {
 //Attribute Declaration
 	
 	private String fabric;
-
+	private String color;
 //Empty Constructor
 	
 	public Clothing() {
@@ -15,13 +15,21 @@ public class Clothing extends Product {
 
 //Constructor
 
-	public Clothing(String fabric) {
+	public Clothing(String fabric, String color) {
 		super();
 		this.fabric = fabric;
+		this.color = color;
 	}
 
+
+	public Clothing(String name, double price, String description, int quantity, String brand, int identifier, String fabric, String color) {
+		super(name, price, description, quantity, brand, identifier);
+		this.fabric = fabric;
+		this.color = color;
+	}
 	
 //Getters&Setters
+
 
 	public String getFabric() {
 		return fabric;
@@ -31,12 +39,20 @@ public class Clothing extends Product {
 	public void setFabric(String fabric) {
 		this.fabric = fabric;
 	}
+	
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
 
 	//toString
 	
 	@Override
 	public String toString() {
-		return "Clothing [fabric=" + fabric + "]";
+		return "Clothing [fabric=" + fabric + ", color=" + color + "]";
 	}
 	
 	//Methods
@@ -46,6 +62,8 @@ public class Clothing extends Product {
 				"\nBrand: " + this.getBrand() + "\nIdentifier: " + this.getIdentifier() + 
 				"\nFabric: " + this.getFabric();
 	}
+
+	
 	
 	
 }

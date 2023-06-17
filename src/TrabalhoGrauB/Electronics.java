@@ -22,8 +22,16 @@ public class Electronics extends Product {
 		this.type = type;
 		this.color = color;
 	}
+	
+	public Electronics(String name, double price, String description, int quantity, String brand, int identifier,  String type, String color) {
+		super(name, price, description, quantity, brand, identifier);
+		this.type = type;
+		this.color = color;
+	}
 
 //Getters&Setters
+
+
 
 	public String getType() {
 		return type;

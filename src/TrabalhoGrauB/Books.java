@@ -19,7 +19,14 @@ public class Books extends Product {
 	
 public Books(String author, boolean physical, int pages) {
 	super();
-	Author = author;
+	this.Author = author;
+	this.physical = physical;
+	this.pages = pages;
+}
+
+public Books(String name, double price, String description, int quantity, String brand, int identifier, String author, boolean physical, int pages) {
+	super(name, price, description, quantity, brand, identifier);
+	this.Author = author;
 	this.physical = physical;
 	this.pages = pages;
 }
