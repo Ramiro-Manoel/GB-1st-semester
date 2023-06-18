@@ -51,7 +51,7 @@ public class Stock {
 	// metodo exibe todos os itens do estoque
 	public boolean seeStock() {
 		if(stockList.isEmpty()) {
-			System.out.println("The stock is still empty");
+			System.out.println("The stock is empty");
 			return false;
 		} else {
 			System.out.println("Stock:");
@@ -62,7 +62,6 @@ public class Stock {
 			}
 		return true;
 		}
-		
 	}
 
 	// metodo procura produto pelo codigo

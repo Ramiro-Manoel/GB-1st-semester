@@ -219,58 +219,77 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		int option = 0;
 
-		while (option != 3) {
+		while (option != 5) {
 			stock.seeStock();
 
-				System.out.println("\n options:" + "\n1 - See details of a product" + "\n2 - Add product to stock"
-						+ "\n3 - Remove product from stock" + "\n4 - Change the quantity of a product" + "\n5 - leave");
+			System.out.println("\n options:" + "\n1 - See details of a product" + "\n2 - Add product to stock"
+					+ "\n3 - Remove product from stock" + "\n4 - Change the quantity of a product" + "\n5 - leave");
 
-				option = scanner.nextInt();
+			option = scanner.nextInt();
 
-				switch (option) {
+			switch (option) {
+			case 1:
+				System.out.println("Which product do you want to see the details?");
+				System.out.println(stock.getStockList().get(scanner.nextInt()).Details());
+				System.out.println("\nType \"ok\" to go back to the stock");
+				scanner.next();
+				break;
+
+			case 2:
+				System.out.println("Which class of product do you want to add?" + "\n1 - Book" + "\n2 - Home appliance"
+						+ "\n3 - Clothing" + "\n4 - Eletronic" + "\n5 - Go back");
+
+				switch (scanner.nextInt()) {
 				case 1:
-					System.out.println("Which product do you want to see the details?");
-					System.out.println(stock.getStockList().get(scanner.nextInt()).Details());
-					System.out.println("\nType \"ok\" to go back to the stock");
-					scanner.next();
+					stock.addProduct(createBook());
+					System.out.println("Product added!\n");
 					break;
-
 				case 2:
-					System.out.println("Which class of product do you want to add?" + "\n1 - Book"
-							+ "\n2 - Home appliance" + "\n3 - Clothing" + "\n4 - Eletronic" + "\n5 - Go back");
-
-					switch (scanner.nextInt()) {
-					case 1:
-						stock.addProduct(createBook());
-						System.out.println("Product added!\n");
-						break;
-					case 2:
-						stock.addProduct(createHomeAppliances());
-						System.out.println("Product added!\n");
-						break;
-					case 3:
-						stock.addProduct(createclClothing());
-						System.out.println("Product added!\n");
-						break;
-					case 4:
-						stock.addProduct(createElectronic());
-						System.out.println("Product added!\n");
-						break;
-					}
-					System.out.println("Product(s) added to your cart\n");
+					stock.addProduct(createHomeAppliances());
+					System.out.println("Product added!\n");
 					break;
-
 				case 3:
+					stock.addProduct(createclClothing());
+					System.out.println("Product added!\n");
 					break;
-
-				default:
-					System.out.println("invalid option");
+				case 4:
+					stock.addProduct(createElectronic());
+					System.out.println("Product added!\n");
 					break;
 				}
-			}
+				System.out.println("Product(s) added to your cart\n");
+				break;
 
+			case 3:
+				System.out.println("Are you sure you want to remove a product?" + "\n1 - yes" + "\n2 - no");
+				switch (scanner.nextInt()) {
+				case 1:
+					System.out.println("what is the index of the product that you want to remove?");
+					stock.rmvProduct(scanner.nextInt());
+					System.out.println("Product has been removed\n");
+					break;
+				case 2:
+					break;
+				}
+				break;
+
+			case 4:
+				System.out.println("What is the index of the product that you want to change the quantity?");
+				int indexChange = scanner.nextInt();
+				System.out.println("How many of this product are there in the stock?");
+				stock.getStockList().get(indexChange).setQuantity(scanner.nextInt());
+				System.out.println("Quantity has been changed\n");
+				break;
+
+			case 5:
+				break;
+			default:
+				System.out.println("invalid option");
+				break;
+			}
 		}
-	
+
+	}
 
 	public static void cartMenu(Stock stock, Client client, OrderHistory orderHistory, int orderIndex) {
 
@@ -416,6 +435,31 @@ public class Main {
 		}
 	}
 
+	public static void seeOrderHistory(OrderHistory orderHistory) {
+
+		Scanner scanner = new Scanner(System.in);
+
+		if (orderHistory.seeOrderHistory()) {
+
+			System.out.println("Options:" + "\n1 - Remove order from order history" + "\n2 - leave");
+
+			switch (scanner.nextInt()) {
+
+			case 1:
+				System.out.println("Are you sure you want to remove an order?" + "\n1 - yes" + "\n2 - no");
+				switch (scanner.nextInt()) {
+				case 1:
+					System.out.println("what is the index of the order that you want to remove?");
+					orderHistory.rmvOrder(scanner.nextInt());
+					System.out.println("Order has been removed\n");
+					break;
+
+				}
+			}
+		}
+
+	}
+
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
@@ -429,7 +473,7 @@ public class Main {
 		Books book = new Books();
 		book.setQuantity(3);
 		book.setPrice(10);
-		// stock.addProduct(book);
+		stock.addProduct(book);
 
 		while (user != 3) {
 
@@ -461,9 +505,11 @@ public class Main {
 						break;
 
 					default:
-						System.out.println("Invalid option");
+						System.out.println("Invalid option\n");
 						break;
 					}
+					user = 0;
+					break;
 				}
 			case 2:
 				option = 0;
@@ -478,7 +524,7 @@ public class Main {
 						break;
 
 					case 2:
-
+						seeOrderHistory(orderHistory);
 						break;
 
 					case 3:
@@ -494,6 +540,8 @@ public class Main {
 						System.out.println("Invalid option");
 						break;
 					}
+					user = 0;
+					break;
 				}
 			case 3:
 				break;
