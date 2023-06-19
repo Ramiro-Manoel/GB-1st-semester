@@ -24,7 +24,7 @@ public class Electronics extends Product {
 	}
 	
 	public Electronics(String name, double price, String description, int quantity, String brand, int identifier,  String type, String color) {
-		super(name, price, description, quantity, brand, identifier);
+		super(name, price, description, quantity, brand, identifier + 4000);
 		this.type = type;
 		this.color = color;
 	}
@@ -55,15 +55,16 @@ public class Electronics extends Product {
 		this.color = color;
 	}
 
-//toString
+	//toString
 
 	@Override
 	public String toString() {
 		return "Electronics [type=" + type + ", color=" + color + "]";
 	}
 	
-//Methods
+	//Methods
 	
+	//returns all the info in details of the object
 	public String Details() {
 		return "Name: " + this.getName() + "\nPrice: " + this.getPrice() + "\nDescription: " + this.getDescription() + "\nQuantity: " + this.getQuantity() + 
 				"\nBrand: " + this.getBrand() + "\nIdentifier: " + this.getIdentifier() + 

@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Main {
 
+	// asks if the user is a costumer or an employee, returns the number used in the
+	// switch case at main.
 	public static int checkUserType(int password) {
 
 		Scanner scanner = new Scanner(System.in);
-		int testPassword = 0;
+		int testPassword = 999999999;
 		System.out.println("Would you like to use the progam as:" + "\n1 - Costumer" + "\n2 - Employee"
 				+ "\n3 - leave the progam");
 
@@ -18,10 +20,17 @@ public class Main {
 			return 1;
 
 		case 2:
-			System.out.println("Type the password:");
+			System.out.println("Type the password: (type 0 to leave)");
 
 			while (testPassword != password) {
+				if (testPassword == 0) {
+					return 0;
+				}
 				testPassword = scanner.nextInt();
+
+				if (testPassword == 0) {
+					return 0;
+				}
 				if (testPassword == password) {
 					return 2;
 				} else {
@@ -38,6 +47,7 @@ public class Main {
 		return 0;
 	}
 
+	// asks all the attributes for creating a client and returns it.
 	public static Client createClient() {
 
 		Scanner scanner = new Scanner(System.in);
@@ -59,6 +69,7 @@ public class Main {
 		return new Client(name, new Address(adressInfo[0], adressInfo[1], adressInfo[2], adressInfo[3]), new Cart());
 	}
 
+	// asks all the attributes for creating a book and returns it.
 	public static Books createBook() {
 
 		Scanner scanner = new Scanner(System.in);
@@ -75,7 +86,7 @@ public class Main {
 		System.out.println("Whats the brand of the book?");
 		scanner.nextLine();
 		String brand = scanner.nextLine();
-		System.out.println("Whats the indetifier of the book?");
+		System.out.println("Whats the indetifier of the book? (between 0 and 999)");
 		int identifier = scanner.nextInt();
 		System.out.println("Whats the author of the book?");
 		scanner.nextLine();
@@ -94,6 +105,7 @@ public class Main {
 		return new Books(name, price, desciption, quantity, brand, identifier, author, physical, pages);
 	}
 
+	// asks all the attributes for creating a home appliance and returns it.
 	public static HomeAppliances createHomeAppliances() {
 
 		Scanner scanner = new Scanner(System.in);
@@ -110,7 +122,7 @@ public class Main {
 		System.out.println("Whats the brand of the home appliance?");
 		scanner.nextLine();
 		String brand = scanner.nextLine();
-		System.out.println("Whats the indentifier of the home appliance?");
+		System.out.println("Whats the indentifier of the home appliance? (between 0 and 999)");
 		int identifier = scanner.nextInt();
 		System.out.println("Whats the power of the home appliance?");
 		int power = scanner.nextInt();
@@ -118,6 +130,7 @@ public class Main {
 		return new HomeAppliances(name, price, desciption, quantity, brand, identifier, power);
 	}
 
+	// asks all the attributes for creating a clothing and returns it.
 	public static Clothing createclClothing() {
 		Scanner scanner = new Scanner(System.in);
 
@@ -133,7 +146,7 @@ public class Main {
 		System.out.println("Whats the brand of the clothing?");
 		scanner.nextLine();
 		String brand = scanner.nextLine();
-		System.out.println("Whats the indentifier of the clothing?");
+		System.out.println("Whats the indentifier of the clothing? (between 0 and 999)");
 		int identifier = scanner.nextInt();
 		System.out.println("Whats the fabric of the clothing?");
 		scanner.nextLine();
@@ -144,6 +157,7 @@ public class Main {
 		return new Clothing(name, price, desciption, quantity, brand, identifier, fabric, color);
 	}
 
+	// asks all the attributes for creating an electronic and returns it.
 	public static Electronics createElectronic() {
 		Scanner scanner = new Scanner(System.in);
 
@@ -159,7 +173,7 @@ public class Main {
 		System.out.println("Whats the brand of the eletronic?");
 		scanner.nextLine();
 		String brand = scanner.nextLine();
-		System.out.println("Whats the indentifier of the eletronic?");
+		System.out.println("Whats the indentifier of the eletronic? (between 0 and 999)");
 		int identifier = scanner.nextInt();
 		System.out.println("Whats the fabric of the eletronic?");
 		scanner.nextLine();
@@ -170,16 +184,18 @@ public class Main {
 		return new Electronics(name, price, desciption, quantity, brand, identifier, type, color);
 	}
 
-	public static void stockCostumerMenu(Stock stock, Cart cart) {
+	// method that shows the stock and gives all the options that a client have at
+	// the stock
+	public static boolean stockCostumerMenu(Stock stock, Cart cart) {
 
 		Scanner scanner = new Scanner(System.in);
 		int option = 0;
 
-		while (option != 3) {
+		while (option != 4) {
 			if (stock.seeStock()) {
 
 				System.out.println("\n options:" + "\n1 - See details of a product" + "\n2 - Add product in your cart"
-						+ "\n3 - Leave");
+						+ "\n3 - Filter by category" + "\n4 - leave");
 
 				option = scanner.nextInt();
 
@@ -203,6 +219,24 @@ public class Main {
 					break;
 
 				case 3:
+					System.out.println("which category would you like to see?" + "\n1 - Boooks"
+							+ "\n2 - Home appliances" + "\n3 - Clothing" + "\n4 - Electronics");
+					switch (scanner.nextInt()) {
+					case 1:
+						stock.filter(1);
+						break;
+					case 2:
+						stock.filter(2);
+						break;
+					case 3:
+						stock.filter(3);
+						break;
+					case 4:
+						stock.filter(4);
+						break;
+					}
+					break;
+				case 4:
 					break;
 
 				default:
@@ -210,20 +244,24 @@ public class Main {
 					break;
 				}
 			} else {
-				option = 3;
+				option = 4;
 			}
 		}
+		return true;
 	}
 
-	public static void stockEmployeeMenu(Stock stock) {
+	// method that shows the stock and gives all the options that the employee have
+	// at the stock
+	public static boolean stockEmployeeMenu(Stock stock) {
 		Scanner scanner = new Scanner(System.in);
 		int option = 0;
 
-		while (option != 5) {
+		while (option != 6) {
 			stock.seeStock();
 
 			System.out.println("\n options:" + "\n1 - See details of a product" + "\n2 - Add product to stock"
-					+ "\n3 - Remove product from stock" + "\n4 - Change the quantity of a product" + "\n5 - leave");
+					+ "\n3 - Remove product from stock" + "\n4 - Change the quantity of a product"
+					+ "\n5 - Filter by category" + "\n6 - leave");
 
 			option = scanner.nextInt();
 
@@ -282,16 +320,36 @@ public class Main {
 				break;
 
 			case 5:
+				System.out.println("which category would you like to see?" + "\n1 - Boooks" + "\n2 - Home appliances"
+						+ "\n3 - Clothing" + "\n4 - Electronics");
+				switch (scanner.nextInt()) {
+				case 1:
+					stock.filter(1);
+					break;
+				case 2:
+					stock.filter(2);
+					break;
+				case 3:
+					stock.filter(3);
+					break;
+				case 4:
+					stock.filter(4);
+					break;
+				}
+				break;
+			case 6:
 				break;
 			default:
 				System.out.println("invalid option");
 				break;
 			}
 		}
-
+		return true;
 	}
 
-	public static void cartMenu(Stock stock, Client client, OrderHistory orderHistory, int orderIndex) {
+	// method that shows the cart and gives all the options that a client have at
+	// the stock
+	public static boolean cartMenu(Stock stock, Client client, OrderHistory orderHistory, int orderIndex) {
 
 		Scanner scanner = new Scanner(System.in);
 		int option = 0;
@@ -353,8 +411,11 @@ public class Main {
 				option = 4;
 			}
 		}
+		return true;
 	}
 
+	// method that creates the order object for a client and returns it, creating a
+	// payment object
 	public static Order puchaseMenu(Client client) {
 
 		Scanner scanner = new Scanner(System.in);
@@ -382,7 +443,8 @@ public class Main {
 
 	}
 
-	public static void profileMenu(Client client) {
+	// method that shows the name and the address of the client and let it change it
+	public static boolean profileMenu(Client client) {
 
 		Scanner scanner = new Scanner(System.in);
 		int option = 0;
@@ -433,9 +495,12 @@ public class Main {
 				break;
 			}
 		}
+		return true;
 	}
 
-	public static void seeOrderHistory(OrderHistory orderHistory) {
+	// method that show all the orders that have been made and give the option to
+	// delete the order you choose
+	public static boolean seeOrderHistory(OrderHistory orderHistory) {
 
 		Scanner scanner = new Scanner(System.in);
 
@@ -457,7 +522,7 @@ public class Main {
 				}
 			}
 		}
-
+		return true;
 	}
 
 	public static void main(String[] args) {
@@ -479,6 +544,8 @@ public class Main {
 
 			user = checkUserType(password);
 			switch (user) {
+			case 0:
+				break;
 			case 1:
 				Client client = createClient();
 				option = 0;
@@ -508,13 +575,14 @@ public class Main {
 						System.out.println("Invalid option\n");
 						break;
 					}
-					user = 0;
-					break;
+
 				}
+				break;
+
 			case 2:
 				option = 0;
 				while (option != 4) {
-					System.out.println("Employee ptions: " + "\n1 - See stock" + "\n2 - See order history"
+					System.out.println("Employee options: " + "\n1 - See stock" + "\n2 - See order history"
 							+ "\n3 - Change password" + "\n4 - Leave");
 					option = scanner.nextInt();
 					switch (option) {
@@ -528,7 +596,7 @@ public class Main {
 						break;
 
 					case 3:
-						System.out.println("Type the new password");
+						System.out.println("Type the new password (must be only numbers and different of 0)");
 						password = scanner.nextInt();
 						System.out.println("Your password has been changed successfully\n");
 						break;
@@ -540,8 +608,7 @@ public class Main {
 						System.out.println("Invalid option");
 						break;
 					}
-					user = 0;
-					break;
+
 				}
 			case 3:
 				break;

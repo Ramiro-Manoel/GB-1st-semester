@@ -6,17 +6,11 @@ public class Stock {
 
 	ArrayList<Product> stockList = new ArrayList();
 
-	// Contrutor vazio
+	// constructor (doesn't need any attributes)
 	public Stock() {
 	}
 
-	// contrutor com atributo
-	public Stock(ArrayList<Product> stockList) {
-		super();
-		this.stockList = stockList;
-	}
-
-	// getters e setters
+	// getters and setters
 	public ArrayList<Product> getStockList() {
 		return stockList;
 	}
@@ -25,49 +19,53 @@ public class Stock {
 		this.stockList = stockList;
 	}
 
+	// tooString
 	@Override
 	public String toString() {
 		return "Stock [stockList=" + stockList + "]";
 	}
 
-	// metodo para adicionar produto no estoque
+	// method that receives and adds an product to the stock ArrayList. Returns true
 	public boolean addProduct(Product product) {
 		this.stockList.add(product);
 		return true;
 	}
 
-	// metodo remove produto informando o nome do objeto
+	// method that receives and removes a product. Returns true
 	public boolean rmvProduct(Product product) {
 		this.stockList.remove(product);
 		return true;
 	}
 
-	// metodo remove produto informando a posicao do objeto na lista
+	// method that receives the index of the ArrayList and removes the product in
+	// the position received. Returns true
 	public boolean rmvProduct(int number) {
 		this.stockList.remove(number);
 		return true;
 	}
 
-	// metodo exibe todos os itens do estoque
+	// method that shows all the products in the stock and returns true. If the
+	// stock is empty, it says that the stock is empty and return false
 	public boolean seeStock() {
-		if(stockList.isEmpty()) {
+		if (stockList.isEmpty()) {
 			System.out.println("The stock is empty");
 			return false;
 		} else {
 			System.out.println("Stock:");
-		for (Product e : stockList) {
-			if (e.getQuantity() > 0) {
-				System.out.println(stockList.indexOf(e) + " - " + e.showProduct());
+			for (Product e : stockList) {
+				if (e.getQuantity() > 0) {
+					System.out.println(stockList.indexOf(e) + " - " + e.showProduct());
+				}
 			}
-			}
-		return true;
+			return true;
 		}
 	}
 
-	// metodo procura produto pelo codigo
-	public Product search(int indentifier) {
+	// method that searches for and product with the identifier equals the number
+	// received, if it founds, it return the product found
+	public Product search(int identifier) {
 		for (Product e : stockList) {
-			if (e.getIdentifier() == indentifier) {
+			if (e.getIdentifier() == identifier) {
 				return e;
 			} else {
 				return null;
@@ -77,13 +75,15 @@ public class Stock {
 
 	}
 
-	// metodo exibe apenas os itens de uma determinada categoria
+	// method that filters the products by the identifier, showing only one category
+	// of product
 
 	public boolean filter(int filter) {
 
 		switch (filter) {
 		// products with the identifier between 1000 and 1999 are books
 		case 1:
+			System.out.println("Books: ");
 			for (Product e : stockList) {
 
 				if (e.getIdentifier() >= 1000 && e.getIdentifier() < 2000) {
@@ -94,6 +94,7 @@ public class Stock {
 
 		// products with the identifier between 2000 and 2999 are home appliances
 		case 2:
+			System.out.println("Home appliances: ");
 			for (Product e : stockList) {
 
 				if (e.getIdentifier() >= 2000 && e.getIdentifier() < 3000) {
@@ -104,6 +105,7 @@ public class Stock {
 
 		// products with the identifier between 3000 and 3999 are clothing
 		case 3:
+			System.out.println("Clothing: ");
 			for (Product e : stockList) {
 
 				if (e.getIdentifier() >= 3000 && e.getIdentifier() < 4000) {
@@ -114,6 +116,7 @@ public class Stock {
 
 		// products with the identifier between 4000 and 4999 are electronics
 		case 4:
+			System.out.println("Eletronic: ");
 			for (Product e : stockList) {
 
 				if (e.getIdentifier() >= 4000 && e.getIdentifier() < 5000) {

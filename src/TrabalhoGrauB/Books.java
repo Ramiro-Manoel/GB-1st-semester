@@ -15,7 +15,7 @@ public class Books extends Product {
 		
 	}
 
-//Constructor
+//Constructors
 	
 public Books(String author, boolean physical, int pages) {
 	super();
@@ -25,7 +25,7 @@ public Books(String author, boolean physical, int pages) {
 }
 
 public Books(String name, double price, String description, int quantity, String brand, int identifier, String author, boolean physical, int pages) {
-	super(name, price, description, quantity, brand, identifier);
+	super(name, price, description, quantity, brand, identifier + 1000);
 	this.Author = author;
 	this.physical = physical;
 	this.pages = pages;
@@ -66,6 +66,7 @@ public String toString() {
 
 //Methods
 
+//returns all the info in details of the object
 public String Details() {
 	return "Name: " + this.getName() + "\nPrice: " + this.getPrice() + "\nDescription: " + this.getDescription() + "\nQuantity: " + this.getQuantity() + 
 			"\nBrand: " + this.getBrand() + "\nIdentifier: " + this.getIdentifier() + 

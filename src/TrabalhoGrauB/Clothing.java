@@ -23,7 +23,7 @@ public class Clothing extends Product {
 
 
 	public Clothing(String name, double price, String description, int quantity, String brand, int identifier, String fabric, String color) {
-		super(name, price, description, quantity, brand, identifier);
+		super(name, price, description, quantity, brand, identifier + 3000);
 		this.fabric = fabric;
 		this.color = color;
 	}
@@ -57,6 +57,7 @@ public class Clothing extends Product {
 	
 	//Methods
 	
+	//returns all the info in details of the object
 	public String Details() {
 		return "Name: " + this.getName() + "\nPrice: " + this.getPrice() + "\nDescription: " + this.getDescription() + "\nQuantity: " + this.getQuantity() + 
 				"\nBrand: " + this.getBrand() + "\nIdentifier: " + this.getIdentifier() + 

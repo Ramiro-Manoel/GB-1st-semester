@@ -67,6 +67,7 @@ public class Address {
 		return "Address [state=" + state + ", city=" + city + ", street=" + street + ", number=" + number + "]";
 	}
 	
+	//shows the Address organized
 	public String seeAddress() {
 		return street + ", " + number + " - " + city + " - " + state;
 	}

@@ -2,18 +2,18 @@ package TrabalhoGrauB;
 
 public class HomeAppliances extends Product {
 
-//Attributes Declaration
+	//Attributes Declaration
 	
 	private int power;
 	
-//Empty Constructor
+	//Empty Constructor
 	
 	public HomeAppliances() {
 		super();
 		
 	}
 
-//Constructor
+	//Constructor
 
 	public HomeAppliances(int power) {
 		super();
@@ -21,11 +21,11 @@ public class HomeAppliances extends Product {
 	}
 
 	public HomeAppliances(String name, double price, String description, int quantity, String brand, int identifier, int power) {
-		super(name, price, description, quantity, brand, identifier);
+		super(name, price, description, quantity, brand, identifier + 2000);
 		this.power = power;
 	}
 	
-//Getters&Setters
+	//Getters&Setters
 	
 	public int getPower() {
 		return power;
@@ -35,15 +35,16 @@ public class HomeAppliances extends Product {
 		this.power = power;
 	}
 	
-//toString
+	//toString
 	
 	@Override
 	public String toString() {
 		return super.toString() + "HomeAppliances [power=" + power + "]";
 	}
 	
-//Methods
+	//Methods
 	
+	//returns all the info in details of the object
 	public String Details() {
 		return "Name: " + this.getName() + "\nPrice: " + this.getPrice() + "\nDescription: " + this.getDescription() + "\nQuantity: " + this.getQuantity() + 
 				"\nBrand: " + this.getBrand() + "\nIdentifier: " + this.getIdentifier() + 

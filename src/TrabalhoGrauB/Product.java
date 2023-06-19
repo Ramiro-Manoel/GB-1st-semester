@@ -90,10 +90,12 @@ public String toString() {
 
 //Methods
 
+// shows the more basic info of a product (name and price)
 public String showProduct () {
 	return "Name: " + this.getName() + " Price: R$" + this.getPrice();
 };
 
+// abstract class for the children class
 public abstract String Details();
 
 

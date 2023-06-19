@@ -57,16 +57,5 @@ public class Payment {
 	public String toString() {
 		return "Payment [value=" + value + ", installments=" + installments + ", type=" + type + "]";
 	}
-	
-//Methods
-	
-	public double installmentsValue () {
-		
-		return installments;
-	};
-	
-	
-	
-	
 
 }
