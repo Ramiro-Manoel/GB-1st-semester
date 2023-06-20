@@ -261,7 +261,7 @@ public class Main {
 
 			System.out.println("\n options:" + "\n1 - See details of a product" + "\n2 - Add product to stock"
 					+ "\n3 - Remove product from stock" + "\n4 - Change the quantity of a product"
-					+ "\n5 - Filter by category" + "\n6 - leave");
+					+ "\n5 - Filter by category" + "\n6 - Leave");
 
 			option = scanner.nextInt();
 

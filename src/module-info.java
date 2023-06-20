@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ManoelRamiro
- *
- */
-module TrabalhoGrauB {
-}

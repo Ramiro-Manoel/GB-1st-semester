@@ -31,6 +31,12 @@ public class Cart {
 		return "Cart [shoppingList=" + shoppingList + "]";
 	}
 
+	// method that receive a product and adds it to the ArrayList cart.
+	public boolean addProduct(Product product) {
+		this.shoppingList.add(product);
+		return true;
+	}
+
 	// method that receive the index of the product in the stock, add it in the cart
 	// and decreases the quantity of the object in one
 	public boolean addProduct(int index, Stock stock) {
@@ -77,7 +83,8 @@ public class Cart {
 		return finalValue;
 	}
 
-	// method that returns the sum of all the prices of the products in the cart and empties the cart
+	// method that returns the sum of all the prices of the products in the cart and
+	// empties the cart
 	public double conclude() {
 		double finalValue = 0;
 
