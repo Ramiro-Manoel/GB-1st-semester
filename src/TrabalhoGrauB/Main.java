@@ -175,7 +175,7 @@ public class Main {
 		String brand = scanner.nextLine();
 		System.out.println("Whats the indentifier of the eletronic? (between 0 and 999)");
 		int identifier = scanner.nextInt();
-		System.out.println("Whats the fabric of the eletronic?");
+		System.out.println("Whats the type of the eletronic?");
 		scanner.nextLine();
 		String type = scanner.nextLine();
 		System.out.println("Whats the color of the eletronic?");
