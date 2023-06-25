@@ -56,19 +56,29 @@ public class Order {
 	// Shows the information of the order (client name, client address and all the
 	// products bought) and returns true
 	public boolean orderInfo() {
+		
+		if(products.isEmpty()) {
+			return false;
+		} else {
 		System.out.println("Order " + "\nClient: " + client.ClientInfo() + "\nProducts: ");
 		for (Product e : products) {
 			System.out.println(e.showProduct());
 		}
 		return true;
+		}
 	}
 
 	//takes all the products in the cart and passes to the order. Returns true
 	public boolean passProducts(Cart cart) {
+		
+		if(cart.getShoppingList().isEmpty()) {
+			return false;
+		}else {
 		for (Product e : cart.getShoppingList()) {
 			products.add(e);
 		}
 		return true;
+		}
 	}
 
 }

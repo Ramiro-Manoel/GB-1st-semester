@@ -31,17 +31,15 @@ public class Stock {
 		return true;
 	}
 
-	// method that receives and removes a product. Returns true
-	public boolean rmvProduct(Product product) {
-		this.stockList.remove(product);
-		return true;
-	}
-
 	// method that receives the index of the ArrayList and removes the product in
 	// the position received. Returns true
-	public boolean rmvProduct(int number) {
-		this.stockList.remove(number);
-		return true;
+	public boolean rmvProduct(int index) {
+		if(index < stockList.size()) {
+			this.stockList.remove(index);
+			return true;
+			} else {
+				return false;
+			}
 	}
 
 	// method that shows all the products in the stock and returns true. If the
@@ -79,8 +77,11 @@ public class Stock {
 	// of product
 
 	public boolean filter(int filter) {
-
+		
+		if (filter < 5 && filter > 0) {
 		switch (filter) {
+		
+		
 		// products with the identifier between 1000 and 1999 are books
 		case 1:
 			System.out.println("Books: ");
@@ -124,14 +125,12 @@ public class Stock {
 				}
 			}
 			break;
-
-		default:
-			System.out.println("invalid option");
-			break;
 		}
 
 		return true;
-
+		}
+		return false;
 	}
-
 }
+
+

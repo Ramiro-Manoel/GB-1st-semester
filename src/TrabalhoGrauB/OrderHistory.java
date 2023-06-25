@@ -35,19 +35,18 @@ public class OrderHistory {
 	public boolean addOrder(Order order) {
 		this.orderHistory.add(order);
 		return true;
-	}
-
-	// remove an order from the history, receiving order to delete it. Returns true
-	public boolean rmvOrder(Order order) {
-		this.orderHistory.remove(order);
-		return true;
+		
 	}
 
 	// remove an order from the history, receiving the index of the order to delete
 	// it. Returns true
 	public boolean rmvOrder(int index) {
+		if(index < orderHistory.size()) {
 		this.orderHistory.remove(index);
 		return true;
+		} else {
+			return false;
+		}
 	}
 
 	// shows all the orders in the orderHistory and return true. If there's no

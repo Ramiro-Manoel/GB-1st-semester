@@ -61,7 +61,7 @@ public class Clothing extends Product {
 	public String Details() {
 		return "Name: " + this.getName() + "\nPrice: " + this.getPrice() + "\nDescription: " + this.getDescription() + "\nQuantity: " + this.getQuantity() + 
 				"\nBrand: " + this.getBrand() + "\nIdentifier: " + this.getIdentifier() + 
-				"\nFabric: " + this.getFabric();
+				"\nFabric: " + this.getFabric() + "\nColor: " + this.getColor();
 	}
 
 	
